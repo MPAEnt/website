@@ -1,4 +1,5 @@
 <title>MPA Enterprises LLC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="MPA Enterprises LLC. A branded dark-theme hub with detailed sub-pages for the podcast, public speaking, consulting, and payroll and benefits divisions.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +18,7 @@
     --otm-gold:#d7a84a; --otm-cream:#f5eee2;
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;overflow-x:hidden}
   body{margin:0;background:var(--ground);color:var(--ink);
     font-family:"Archivo",system-ui,-apple-system,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
@@ -174,7 +175,7 @@
   .foot-base{text-align:center;font-size:.76rem;color:rgba(245,238,226,.45);margin-top:1.6rem;letter-spacing:.03em}
 
   @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
-</style>
+.nav-toggle{display:none}@media(max-width:720px){.nav-toggle{display:block;margin-left:auto;background:none;border:none;color:var(--ink);font-size:1.6rem;line-height:1;cursor:pointer;padding:.2rem .5rem}.nav-links{position:absolute;top:66px;left:0;right:0;margin-left:0;flex-direction:column;align-items:stretch;gap:0;background:var(--navy-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;max-height:0;transition:max-height .3s ease}.nav-links.open{max-height:80vh;overflow:auto}.nav-links a{padding:.95rem 1.4rem;font-size:1rem;border-radius:0}.nav-links a.cta{border:none;color:var(--gold);background:none}}@media(max-width:560px){.lede{font-size:.98rem}.tagline{gap:.5rem;letter-spacing:.14em;font-size:.68rem}.mq-item,.mq-logo{width:150px}.mq-logo{height:90px}}</style>
 
 
 <header class="nav">
@@ -183,7 +184,7 @@
       <svg viewBox="0 0 60 30" aria-hidden="true"><path d="M2 20 C 16 6, 44 6, 58 20" fill="none" stroke="url(#ng)" stroke-width="4" stroke-linecap="round"/><defs><linearGradient id="ng" x1="0" x2="1"><stop offset="0" stop-color="#ecce84"/><stop offset="1" stop-color="#b0872a"/></linearGradient></defs></svg>
       MPA
     </a>
-    <nav class="nav-links" id="navLinks">
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">☰</button><nav class="nav-links" id="navLinks">
       <a href="#home">Home</a>
       <a href="#podcast">Podcast</a>
       <a href="#speaking">Speaking</a>
@@ -417,7 +418,7 @@
 
 <script>
   const pages=[...document.querySelectorAll('.page')];
-  const links=[...document.querySelectorAll('#navLinks a')];
+  const links=[...document.querySelectorAll('#navLinks a')];const navLinks=document.getElementById('navLinks'),navToggle=document.getElementById('navToggle');if(navToggle){navToggle.addEventListener('click',()=>navLinks.classList.toggle('open'));navLinks.addEventListener('click',e=>{if(e.target.closest('a'))navLinks.classList.remove('open')});}
   function route(){
     let id=(location.hash||'#home').slice(1);
     if(!document.getElementById(id)) id='home';
