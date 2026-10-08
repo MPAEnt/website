@@ -185,6 +185,25 @@
 
   @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
 .nav-toggle{display:none}@media(max-width:720px){.nav-toggle{display:block;margin-left:auto;background:none;border:none;color:var(--ink);font-size:1.6rem;line-height:1;cursor:pointer;padding:.2rem .5rem}.nav-links{position:absolute;top:66px;left:0;right:0;margin-left:0;flex-direction:column;align-items:stretch;gap:0;background:var(--navy-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;max-height:0;transition:max-height .3s ease}.nav-links.open{max-height:80vh;overflow:auto}.nav-links a{padding:.95rem 1.4rem;font-size:1rem;border-radius:0}.nav-links a.cta{border:none;color:var(--gold);background:none}}@media(max-width:560px){.lede{font-size:.98rem}.tagline{gap:.5rem;letter-spacing:.14em;font-size:.68rem}.mq-item,.mq-logo{width:150px}.mq-logo{height:90px}}.subhead .backlink{display:flex;width:fit-content}</style>
+<style id="otm-gallery-css">
+.otm-gallery{margin-top:clamp(2.2rem,4vw,3rem);text-align:center}
+.otm-eyebrow{display:block;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--otm-gold);font-weight:700;margin-bottom:1rem}
+.otm-mosaic{max-width:840px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:118px;gap:.6rem}
+.otm-tile{display:block;overflow:hidden;border-radius:5px;border:1px solid rgba(245,238,226,.14);cursor:zoom-in}
+.otm-tile.feat{grid-column:span 2;grid-row:span 2}
+.otm-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.otm-tile:hover img{transform:scale(1.04)}
+.otm-tile:focus-visible{outline:2px solid var(--otm-gold);outline-offset:2px}
+@media(max-width:560px){.otm-mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:96px;gap:.5rem}.otm-tile.feat{grid-row:span 2}}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(10,8,7,.92);display:flex;align-items:center;justify-content:center;padding:3.5rem 3.8rem}
+.lb[hidden]{display:none}
+.lb img{max-width:100%;max-height:100%;border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.lb button{position:absolute;background:rgba(23,18,16,.85);border:1px solid var(--otm-gold);color:var(--otm-gold);border-radius:50%;width:44px;height:44px;font-size:1.7rem;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0 0 3px}
+.lb button:hover{background:var(--otm-gold);color:#171210}
+.lb-close{top:.9rem;right:.9rem}.lb-prev{left:.8rem;top:50%;transform:translateY(-50%)}.lb-next{right:.8rem;top:50%;transform:translateY(-50%)}
+@media(max-width:560px){.lb{padding:3.6rem .6rem}.lb-prev,.lb-next{top:auto;bottom:.9rem;transform:none}.lb-prev{left:30%}.lb-next{right:30%}}
+</style>
+
 <style id="call-1008-css">
 .mq-wrap{position:relative}
 .mq-arrow{position:absolute;top:calc(1.6rem + 52px);transform:translateY(-50%);z-index:3;width:42px;height:42px;border-radius:50%;border:1px solid var(--gold);background:rgba(8,16,32,.88);color:var(--gold);font-size:1.7rem;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0 0 4px}
@@ -361,7 +380,12 @@
           <a href="https://open.spotify.com/show/033iEWRDeZDvi3yLkuvI6s" target="_blank" rel="noopener" aria-label="Spotify"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 100 24 12 12 0 000-24zm5.5 17.3a.75.75 0 01-1 .25c-2.8-1.7-6.3-2.1-10.4-1.2a.75.75 0 11-.32-1.46c4.5-1 8.4-.5 11.5 1.4.35.22.46.68.22 1.01zm1.5-3.3a.94.94 0 01-1.29.31c-3.2-1.97-8-2.54-11.76-1.4a.94.94 0 11-.54-1.8c4.3-1.3 9.6-.65 13.28 1.6.44.27.58.85.31 1.29zm.13-3.4C15.4 5.98 8.9 5.78 5.2 6.9a1.12 1.12 0 11-.65-2.15C8.8 3.46 16 3.7 20.5 6.35a1.12 1.12 0 11-1.14 1.94z"/></svg></a>
         </div>
       </div>
+        <div class="wrap otm-gallery">
+      <span class="otm-eyebrow">Behind the mic</span>
+      <div class="otm-mosaic"><a class="otm-tile feat" href="images/podcast/otm-toast.jpg" data-i="0" aria-label="View larger photo"><img src="images/podcast/otm-toast-sm.jpg" alt="On The Mic With Mike recording, a toast at the table" loading="lazy"></a><a class="otm-tile" href="images/podcast/otm-outdoor.jpg" data-i="1" aria-label="View larger photo"><img src="images/podcast/otm-outdoor-sm.jpg" alt="On The Mic With Mike recording outdoors" loading="lazy" style="object-position:50% 8%"></a><a class="otm-tile" href="images/podcast/otm-gym.jpg" data-i="2" aria-label="View larger photo"><img src="images/podcast/otm-gym-sm.jpg" alt="On The Mic With Mike recording in a high school gym" loading="lazy"></a><a class="otm-tile" href="images/podcast/otm-fight-camp.jpg" data-i="3" aria-label="View larger photo"><img src="images/podcast/otm-fight-camp-sm.jpg" alt="On The Mic With Mike recording at a fight camp" loading="lazy"></a><a class="otm-tile" href="images/podcast/otm-barbershop.jpg" data-i="4" aria-label="View larger photo"><img src="images/podcast/otm-barbershop-sm.jpg" alt="On The Mic With Mike recording at a barbershop" loading="lazy"></a></div>
     </div>
+    <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden><button class="lb-close" type="button" aria-label="Close">&times;</button><button class="lb-nav lb-prev" type="button" aria-label="Previous photo">&lsaquo;</button><img alt=""><button class="lb-nav lb-next" type="button" aria-label="Next photo">&rsaquo;</button></div>
+</div>
   </section>
 
   <!-- PUBLIC SPEAKING -->
@@ -572,5 +596,20 @@ requestAnimationFrame(frame);
 mq.addEventListener('mouseenter',()=>paused=true);mq.addEventListener('mouseleave',()=>paused=false);
 document.querySelector('.mq-prev').addEventListener('click',()=>{target=(target??x)+stepPx()*2});
 document.querySelector('.mq-next').addEventListener('click',()=>{target=(target??x)-stepPx()*2});
+})();
+</script>
+<script id="otm-lightbox">
+(()=>{const lb=document.getElementById('lb');if(!lb)return;const img=lb.querySelector('img');
+const tiles=[...document.querySelectorAll('.otm-tile')];let cur=0,opener=null;
+function show(i){cur=(i+tiles.length)%tiles.length;const t=tiles[cur];img.src=t.getAttribute('href');img.alt=t.querySelector('img').alt}
+function open(i,el){opener=el;show(i);lb.hidden=false;document.body.style.overflow='hidden';lb.querySelector('.lb-close').focus()}
+function close(){lb.hidden=true;document.body.style.overflow='';img.removeAttribute('src');if(opener)opener.focus()}
+tiles.forEach((t,i)=>t.addEventListener('click',e=>{e.preventDefault();open(i,t)}));
+lb.querySelector('.lb-close').onclick=close;
+lb.querySelector('.lb-prev').onclick=()=>show(cur-1);lb.querySelector('.lb-next').onclick=()=>show(cur+1);
+lb.addEventListener('click',e=>{if(e.target===lb)close()});
+document.addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
+let x0=null;lb.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+lb.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1));x0=null});
 })();
 </script>
