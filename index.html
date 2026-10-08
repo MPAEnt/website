@@ -185,6 +185,45 @@
 
   @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
 .nav-toggle{display:none}@media(max-width:720px){.nav-toggle{display:block;margin-left:auto;background:none;border:none;color:var(--ink);font-size:1.6rem;line-height:1;cursor:pointer;padding:.2rem .5rem}.nav-links{position:absolute;top:66px;left:0;right:0;margin-left:0;flex-direction:column;align-items:stretch;gap:0;background:var(--navy-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;max-height:0;transition:max-height .3s ease}.nav-links.open{max-height:80vh;overflow:auto}.nav-links a{padding:.95rem 1.4rem;font-size:1rem;border-radius:0}.nav-links a.cta{border:none;color:var(--gold);background:none}}@media(max-width:560px){.lede{font-size:.98rem}.tagline{gap:.5rem;letter-spacing:.14em;font-size:.68rem}.mq-item,.mq-logo{width:150px}.mq-logo{height:90px}}.subhead .backlink{display:flex;width:fit-content}</style>
+<style id="events-css">
+.events{margin-top:.2rem}
+.events h2{font-family:"Cormorant Garamond",serif;font-size:clamp(1.8rem,3.6vw,2.4rem);font-weight:700;color:#fff;margin:.3rem 0 1.1rem}
+.ev-list{display:grid;gap:1.1rem}
+.ev{display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:start;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:4px;padding:1.5rem 1.6rem}
+.ev-date{width:76px;text-align:center;border:1px solid var(--line-strong);border-radius:4px;padding:.55rem 0 .6rem;background:var(--surface-2);display:flex;flex-direction:column;line-height:1.05}
+.ev-date .m{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.ev-date .d{font-family:"Cormorant Garamond",serif;font-size:2.4rem;font-weight:700;color:#fff;margin:.15rem 0}
+.ev-date .w{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.ev-series{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.ev h3{font-family:"Cormorant Garamond",serif;font-size:1.55rem;font-weight:700;color:#fff;margin:.2rem 0 .35rem;line-height:1.15}
+.ev-meta{margin:0;font-size:.88rem;color:var(--ink)}
+.ev-blurb{margin:.6rem 0 0;font-size:.9rem;color:var(--ink-soft);max-width:60ch}
+.ev-act{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;margin-top:1rem}
+.ev-act .btn{padding:.65rem 1.3rem;font-size:.9rem}
+.ev-price{font-size:.8rem;color:var(--ink-soft)}
+.ev-flyer{display:block;width:120px;border-radius:4px;overflow:hidden;border:1px solid var(--line-strong);cursor:zoom-in}
+.ev-flyer.wide{width:200px}
+.ev-flyer img{display:block;width:100%;height:auto;transition:transform .3s}
+.ev-flyer:hover img{transform:scale(1.04)}
+.ev-flyer:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.ev-past{margin-top:1.3rem}
+.ev-past .recent-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.ev-past ul{margin:.3rem 0 0;padding-left:1.1rem;font-size:.9rem;color:var(--ink-soft)}
+.ev-jump{margin-top:.5rem;font-size:.82rem;font-weight:600;color:var(--gold-bright)}
+.div-card .next-up{font-size:.8rem;color:var(--ink);background:var(--surface-2);border:1px solid var(--line-strong);border-radius:3px;padding:.35rem .6rem;width:fit-content}
+.div-card .next-up b{color:var(--gold-bright);font-weight:700}
+#lb-ev img{max-height:100%}
+@media(max-width:640px){
+  .ev{grid-template-columns:auto 1fr;gap:1rem;padding:1.2rem 1.1rem}
+  .ev-date{width:62px}.ev-date .d{font-size:2rem}
+  .ev h3{font-size:1.35rem}
+  .ev-flyer{grid-column:1/-1;width:100%;max-width:none;display:flex;align-items:center;gap:.8rem;border:0;background:var(--surface-2);padding:.6rem;border-radius:4px}
+  .ev-flyer img{width:64px;border-radius:3px}
+  .ev-flyer.wide{width:100%}.ev-flyer.wide img{width:110px}
+  .ev-flyer::after{content:"View the flyer";font-size:.85rem;font-weight:600;color:var(--gold-bright)}
+}
+</style>
+
 <style id="otm-gallery-css">
 .otm-gallery{margin-top:clamp(2.2rem,4vw,3rem);text-align:center}
 .otm-eyebrow{display:block;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--otm-gold);font-weight:700;margin-bottom:1rem}
@@ -299,6 +338,7 @@
           <span class="kicker">Stage</span>
           <h3>Public Speaking</h3>
           <p>Keynotes, emcee work, and a background in national-level ring announcing.</p>
+          <span class="next-up" hidden></span>
           <span class="go">See more &rarr;</span>
         </a>
         <a class="div-card" href="#consulting">
@@ -399,16 +439,41 @@
       </div>
     </div>
     <div class="section"><div class="wrap">
-      <div class="photorow">
-        <div class="photo-ph">Photo coming</div>
-        <div class="photo-ph">Photo coming</div>
-        <div class="photo-ph">Photo coming</div>
+      <div class="events" id="events">
+        <span class="eyebrow">On the calendar</span>
+        <h2>Upcoming events</h2>
+        <div class="ev-list">
+        <article class="ev" data-end="2026-10-23T11:00:00-06:00" data-title="Local Legends Leadership Breakfast" data-short="Oct 23">
+          <div class="ev-date"><span class="m">Oct</span><span class="d">23</span><span class="w">Fri</span></div>
+          <div class="ev-body">
+            <span class="ev-series">Local Legends Speaker Series</span>
+            <h3>Local Legends Leadership Breakfast</h3>
+            <p class="ev-meta">Friday, October 23 &middot; 9:30 to 11:00 AM<br>Hyatt Place Albuquerque/Uptown, 6901 Arvada Ave NE, Albuquerque</p>
+            <p class="ev-blurb">Mike on building more than one career in hotels, broadcasting, the ring, and sales, and what each one taught him about leading a room.</p>
+            <div class="ev-act"><a class="btn" href="https://www.elitebizcc.com/event-details/local-legends-leadership-breakfast-ocotber-2026" target="_blank" rel="noopener">Get tickets &rarr;</a><span class="ev-price">Tickets $25 &middot; hosted by Elite Business Coaching &amp; Consulting</span></div>
+          </div>
+          <a class="ev-flyer" href="images/events/local-legends-2026-10-23.jpg" aria-label="View the event flyer"><img src="images/events/local-legends-2026-10-23-sm.jpg" alt="Flyer for Local Legends Leadership Breakfast" loading="lazy"></a>
+        </article>
+        <article class="ev" data-end="2026-12-03T18:00:00-07:00" data-title="The Leadership Growth Summit" data-short="Dec 3">
+          <div class="ev-date"><span class="m">Dec</span><span class="d">3</span><span class="w">Thu</span></div>
+          <div class="ev-body">
+            <span class="ev-series">With Luis Hernandez</span>
+            <h3>The Leadership Growth Summit</h3>
+            <p class="ev-meta">Thursday, December 3 &middot; 1:00 to 5:00 PM, networking until 6:00<br>Marriott Albuquerque, 2101 Louisiana Blvd NE, Albuquerque</p>
+            <p class="ev-blurb">An afternoon of six leadership modules led by Mike Adams and Luis Hernandez, with Q&amp;A, an elevator pitch workshop, and a networking mixer.</p>
+            <div class="ev-act"><a class="btn" href="https://www.elitebizcc.com/event-details/the-leadership-growth-summit" target="_blank" rel="noopener">Get tickets &rarr;</a><span class="ev-price">Tickets $159 &middot; hosted by Elite Business Coaching &amp; Consulting</span></div>
+          </div>
+          <a class="ev-flyer wide" href="images/events/leadership-growth-summit-2026-12-03.jpg" aria-label="View the event flyer"><img src="images/events/leadership-growth-summit-2026-12-03-sm.jpg" alt="Flyer for The Leadership Growth Summit" loading="lazy"></a>
+        </article>
+        </div>
+        <div class="ev-past" hidden><span class="recent-label">Recent appearances</span><ul></ul></div>
       </div>
-      <div class="offer" style="margin-top:2rem">
+      <div class="lb" id="lb-ev" role="dialog" aria-modal="true" aria-label="Event flyer" hidden><button class="lb-close" type="button" aria-label="Close">&times;</button><img alt=""></div>
+      <div class="offer" style="margin-top:2.4rem">
         <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v4M8 21h8"/></svg><h3>Keynotes &amp; Speaking</h3><p>Talks on leadership, hospitality, and progress, shaped for the room in front of him.</p><span class="recent-label">Recent keynotes</span><ul class="recent"><li>New Mexico Osteopathic Medical Association</li><li>Walmart regional managers meeting</li><li>New Mexico High School Coaches Association</li></ul></div>
         <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l13-5v12L3 13v-2zM3 13v3M8 14v3a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2v-2"/></svg><h3>Emcee &amp; Host</h3><p>Emcee for galas and conventions, a steady, high-energy host who keeps events moving and the crowd engaged. Mike has also officiated weddings.</p></div>
         <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg><h3>Ring Announcing</h3><p>Mike was a ring announcer for ESPN Friday Night Fights, ShoBox, MMA events, and numerous pay-per-view shows.</p></div>
-        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><h3>Events &amp; Appearances</h3><p>Available for conferences, fundraisers, and special events.</p></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><h3>Events &amp; Appearances</h3><p>Available for conferences, fundraisers, and special events.</p><a class="ev-jump" href="#speaking" data-jump="events">See upcoming events &uarr;</a></div>
       </div>
             <figure class="testimonial">
         <span class="eyebrow">What people say</span>
@@ -611,5 +676,23 @@ lb.addEventListener('click',e=>{if(e.target===lb)close()});
 document.addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
 let x0=null;lb.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
 lb.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1));x0=null});
+})();
+</script>
+<script id="events-js">
+(()=>{const q=new URLSearchParams(location.search).get('asof');const now=q?new Date(q+'T12:00:00-06:00'):new Date();
+const box=document.getElementById('events');if(!box)return;
+const cards=[...box.querySelectorAll('.ev')];const past=box.querySelector('.ev-past'),ul=past.querySelector('ul');
+const up=cards.filter(c=>new Date(c.dataset.end)>now);
+cards.filter(c=>!up.includes(c)).reverse().forEach(c=>{const li=document.createElement('li');li.textContent=c.dataset.title+', '+c.dataset.short;ul.appendChild(li);c.remove()});
+if(ul.children.length)past.hidden=false;
+if(!up.length){box.querySelector('h2').hidden=true;box.querySelector('.eyebrow').hidden=true;box.querySelector('.ev-list').hidden=true;document.querySelectorAll('.ev-jump').forEach(a=>a.hidden=true)}
+const nu=document.querySelector('.div-card .next-up');
+if(nu&&up.length){nu.innerHTML='<b>Next up:</b> '+up[0].dataset.short+', '+up[0].dataset.title;nu.hidden=false}
+document.querySelectorAll('.ev-jump').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();box.scrollIntoView({behavior:'smooth',block:'start'})}));
+const lb=document.getElementById('lb-ev'),img=lb.querySelector('img');let opener=null;
+function close(){lb.hidden=true;document.body.style.overflow='';img.removeAttribute('src');if(opener)opener.focus()}
+box.querySelectorAll('.ev-flyer').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();opener=a;img.src=a.getAttribute('href');img.alt=a.querySelector('img').alt;lb.hidden=false;document.body.style.overflow='hidden';lb.querySelector('.lb-close').focus()}));
+lb.querySelector('.lb-close').onclick=close;lb.addEventListener('click',e=>{if(e.target===lb)close()});
+document.addEventListener('keydown',e=>{if(!lb.hidden&&e.key==='Escape')close()});
 })();
 </script>
